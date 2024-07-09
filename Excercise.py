@@ -57,6 +57,7 @@ def find_character_indices():
 
 find_character_indices()
 """
+"""
 # 4. Wypisanie liczb podzielnych przez daną liczbę
 
 def numbers_divisible_by():
@@ -69,3 +70,63 @@ def numbers_divisible_by():
         return print(f"{value} is not divisible by {brave} ")
 
 numbers_divisible_by()
+"""
+"""
+# 5. Sprawdź czy podany tekst jest palindromem
+
+def verify_text():
+    text = input("Enter text: ")
+    clear_text = text.replace(" ", "").lower()
+
+    if clear_text == clear_text[::-1]:
+        print("Text is palindrom")
+    else:
+        print("Text is not palindrom")
+
+verify_text()
+"""
+"""
+# 6. Wyświetl zdanie w odwrotnej kolejności
+
+def sequence_reverse():
+    text = input("Enter your text: ")
+    view = text[::-1]
+    print(view)
+
+sequence_reverse()
+"""
+"""
+# 7. Napisz program ktory konwertuje temperaturę z wartości w stopniach celsiusza na stopnie Kelvina
+
+def convert_temp():
+    amount_celcjus = float(input("Enter value in Celscjus: "))
+    amount_celvin = amount_celcjus + 273.15
+    print(amount_celvin)
+
+convert_temp()
+"""
+"""
+# 8. Wyświetl trójkąt z gwiazdek
+
+def triangle():
+    score = 7
+    char = "*"
+    for i in range(1, score + 1):
+        print(char * i)
+
+triangle()
+# 9. Wyświetl całą choinkę (a nie tylko pół)
+def triangle():
+    score = 7
+    char = "*"
+    for i in range(1, score + 1):
+        spaces = ' ' * (score - i)
+        stars = char * (2 * i - 1)
+        print(spaces + stars)
+
+triangle()
+
+"""
+# 10. Napisz program, który działa jako prosty kalkulator wykonujący podstawowe operacje matematyczne (+, -, *, /),
+# na dwóch liczbach.
+
