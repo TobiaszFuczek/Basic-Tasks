@@ -127,6 +127,64 @@ def triangle():
 triangle()
 
 """
+"""
 # 10. Napisz program, który działa jako prosty kalkulator wykonujący podstawowe operacje matematyczne (+, -, *, /),
 # na dwóch liczbach.
 
+class Calculate():
+    def __init__(self, first_number: float, second_number: float):
+        self.first_number = first_number
+        self.second_number = second_number
+
+    def addition(self):
+        return self.first_number + self.second_number
+
+    def subtraction(self):
+        return self.first_number - self.second_number
+
+    def multiplication(self):
+        return self.first_number * self.second_number
+
+    def division(self):
+        if self.second_number == 0:
+            return "Error: Division by zero"
+        return self.first_number / self.second_number
+
+def main():
+
+    first_number = float(input("Enter first number: "))
+    second_number = float(input("Enter second number: "))
+
+    calc = Calculate(first_number, second_number)
+
+    print(f"Addition: {calc.addition()}")
+    print(f"Subtraction: {calc.subtraction()}")
+    print(f"Multiplication: {calc.multiplication()}")
+    print(f"Division: {calc.division()}")
+
+
+if __name__ == __name__:
+    main()
+
+"""
+"""
+# 11. Napisz program, który zlicza liczbę samogłosek i spółgłosek w danym tekście
+
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    count = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0,
+             'A':0, 'E':0, 'I':0, 'O':0, 'U':0}
+
+    for char in text:
+        if char in vowels:
+            count[char] += 1
+
+    return count
+
+user_input = input("Enter a string: ")
+
+vowel_count = count_vowels(user_input)
+
+for vowel in "aeiouAEIOU":
+    print(f"The number of '{vowel}' in the given string is: {vowel_count[vowel]}")
+"""
