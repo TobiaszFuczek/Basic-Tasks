@@ -188,3 +188,149 @@ vowel_count = count_vowels(user_input)
 for vowel in "aeiouAEIOU":
     print(f"The number of '{vowel}' in the given string is: {vowel_count[vowel]}")
 """
+"""
+# 12. Napisz program, który obliczy średnią ocenę oraz medianę.
+
+def calculate_graduate(grades):
+    total = sum(grades)
+    return total
+
+def calculate_average(grades):
+    total = calculate_graduate(grades)
+    average = total / len(grades)
+    return average
+
+def calculate_median(grades):
+    sorted_grades = sorted(grades)
+    n = len(sorted_grades)
+    if n % 2 == 1:
+        # Jeśli liczba ocen jest nieparzysta, mediana to środkowa wartość
+        median = sorted_grades[n // 2]
+    else:
+        # Jeśli liczba ocen jest parzysta, mediana to średnia z dwóch środkowych wartości
+        mid1 = sorted_grades[n // 2 - 1]
+        mid2 = sorted_grades[n // 2]
+        median = (mid1 + mid2) / 2
+    return median
+
+user_input = input("Enter grades separated by spaces: ")
+grades = list(map(float, user_input.split()))
+
+average_grade = calculate_average(grades)
+median_grade = calculate_median(grades)
+
+print(f"The average grade is {average_grade}")
+print(f"The median grade is {median_grade}")
+
+"""
+"""
+# 13. Napisz program, który odwróci listę elementów w miejscu, bez tworzenia nowej listy
+
+def return_list():
+    user_input = input("Enter value to list: ")
+    list_input = user_input.split()
+    list_input.reverse()
+
+    print(list_input)
+# or
+
+    reverse_list = list_input[::-1]
+    print(reverse_list)
+
+return_list()
+"""
+"""
+# 14. Napisz program, który przyjmie listę liczb i zwróci nową listę,
+# zawierającą tylko liczby parzyste (lub nieparzyste) z pierwotnej listy
+
+
+def count_even_number():
+    list_input = input("Enter numbers: ")
+    list_input = list(map(int, list_input.split()))
+
+    numbers_even = []
+    numbers_odd = []
+
+    for i in list_input:
+        if i % 2 == 0:
+            numbers_even.append(i)
+        else:
+            numbers_odd.append(i)
+
+    print(f"List of value even is {numbers_even} and list of value odd {numbers_odd}")
+
+count_even_number()
+
+"""
+"""
+# 15. Napisz program, który obliczy sumę cyfr w danej liczbie całkowitej, na przykład dla liczby 12345 suma będzie wynosiła 15
+
+def sum_of_numbers():
+    user_input = int(input("Enter number: "))
+    amount = 0
+    for digit in str(user_input):
+        amount += int(digit)
+
+    print(f"Sum all digit in numbers {user_input} is {amount}")
+
+sum_of_numbers()
+"""
+"""
+# 16. Napisz program, który zliczy ile liczb parzystych znajduje się w zadanym zakresie, na przykład od 1 do 50
+
+def even_numbers_scope(a,b):
+    amount = 0
+    for i in range(a,b+1):
+        if i % 2 == 0:
+            amount += 1
+    return amount
+
+scope = even_numbers_scope(1,50)
+print(f"The number of even numbers between 1 and 50 is {scope}")
+"""
+"""
+# 17. Napisz program, który wyświetli kwadrat o boku 7 z gwiazdek
+
+def view_square():
+    side = 7
+    for i in range(side):
+        if i == 0 or i == side - 1:
+            print("*" * side)
+        else:
+            print("*" + " " * (side - 2) + "*")
+
+view_square()
+"""
+"""
+# 18. Napisz funkcję, która obliczy sumę wszystkich liczb w danej liście.
+
+def sum_of_numbers_in_list():
+    user_input = input("Enter numbers separated by spaces: ")
+    user_input_list = user_input.split()
+
+    user_input_list = list(map(int, user_input_list))
+
+    sum_of_numbers = 0
+
+    for i in user_input_list:
+        sum_of_numbers += i
+
+    print(f"The sum of all numbers in the list is {sum_of_numbers}")
+
+sum_of_numbers_in_list()
+
+"""
+"""
+# 19. Napisz funkcję, która odwróci kolejność elementów w danej krotce
+
+def reverse_tuple():
+    user_input = input("Enter numbers separated by spaces: ")
+    list_user_input = user_input.split()
+    list_user_input.reverse()
+    tuple_user_input = tuple(list_user_input)
+
+    print(f"The reverse tuple {user_input} is {tuple_user_input} ")
+
+reverse_tuple()
+
+"""
