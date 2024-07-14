@@ -421,6 +421,54 @@ user_list = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3]
 print(remove_duplicate(user_list))
 
 """
-
+"""
 # 24. Napisz funkcję, która posortuje słownik według wartości
+
+def sorted_dict():
+    user_dict = {"24": "France", "301": "Germany", "22": "Great Britain"}
+
+    # Sortowanie słownika według wartości
+    sorted_user_dict = dict(sorted(user_dict.items(), key=lambda item: item[1]))
+
+    # Wyświetlenie posortowanego słownika
+    print(sorted_user_dict)
+
+
+# Wywołanie funkcji
+sorted_dict()
+
+"""
+"""
+# 25. Napisz funkcję, która przyjmie krotkę, a następnie zwróci sumę i iloczyn jej elementów
+
+from functools import reduce
+import operator
+
+def create_tuple():
+    elements = []
+    while True:
+        user_input = input("If you want to add to the tuple, enter a value. To finish, type 'E': ")
+        if user_input.lower() == 'e':
+            break
+        else:
+            try:
+                # Konwertujemy wejście na liczbę, jeśli to możliwe
+                value = float(user_input)
+                elements.append(value)
+            except ValueError:
+                print("Please enter a valid number.")
+
+    return tuple(elements)
+
+def sum_and_product(tpl):
+    sum_of_elements = sum(tpl)
+    product_of_elements = reduce(operator.mul, tpl, 1)  # 1 jest wartością początkową
+    return sum_of_elements, product_of_elements
+
+# Przykład użycia
+user_tuple = create_tuple()
+sum_result, product_result = sum_and_product(user_tuple)
+print(f"Sum: {sum_result}, Product: {product_result}")
+
+"""
 
