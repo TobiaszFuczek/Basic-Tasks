@@ -334,3 +334,93 @@ def reverse_tuple():
 reverse_tuple()
 
 """
+"""
+# 20. Napisz funkcję, która zliczy liczbę wystąpień każdego elementu w danym słowniku
+
+def verify_dict():
+    keys = []
+    values = []
+    for i in range(5):
+        key = input("Enter key: ")
+        keys.append(key)
+        value = input("Enter value: ")
+        values.append(value)
+    user_dict = dict(zip(keys, values))
+    return user_dict
+
+from collections import Counter
+
+def count_elements(d):
+    # Tworzymy listę wszystkich wartości ze słownika
+    values = list(d.values())
+    # Używamy Counter do zliczenia wystąpień każdego elementu
+    counter = Counter(values)
+    return counter
+
+user_dict = verify_dict()
+element_counts = count_elements(user_dict)
+print(element_counts)
+
+"""
+"""
+# 21. Napisz funkcję, która przyjmie listę liczb i zwróci nową listę zawierającą tylko parzyste liczby
+
+def even_number_list():
+    number_list = []
+    for i in range(5):
+        user_input = int(input("Enter number: "))
+        number_list.append(user_input)
+
+    even_numbers = []
+    for number in number_list:
+        if number % 2 == 0:
+            even_numbers.append(number)
+    return even_numbers
+print(even_number_list())
+
+"""
+"""
+# 22. Napisz funkcję, która przyjmie dwie listy o jednakowej długości i zwróci słownik,
+# gdzie elementy z pierwszej listy stanowią klucze, a z drugiej listy wartości.
+
+def new_dict():
+    list_one = []
+    list_two = []
+
+    for i in range(5):
+        key = input("Enter key: ")
+        list_one.append(key)
+        value = input("Enter value: ")
+        list_two.append(value)
+
+    user_dict = dict(zip(list_one, list_two))
+    print(user_dict)
+
+new_dict()
+
+"""
+"""
+# 23. Napisz funkcję, która usunie duplikaty z danej listy
+
+def remove_duplicate():
+    user_list = [1,2,3,4,5,1,2,3,4,5,1,2,3]
+    new_list = set(user_list)
+    new_new_list = list(new_list)
+
+    print(new_new_list)
+
+remove_duplicate()
+
+#or 
+
+def remove_duplicate(user_list):
+    return list(set(user_list))
+
+# Przykładowe wywołanie funkcji
+user_list = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3]
+print(remove_duplicate(user_list))
+
+"""
+
+# 24. Napisz funkcję, która posortuje słownik według wartości
+
