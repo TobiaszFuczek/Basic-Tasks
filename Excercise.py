@@ -494,3 +494,54 @@ def verify_dict():
 verify_dict()
 
 """
+"""
+# 27. Napisz funkcję, która połączy dwa słowniki.
+
+def merge_dicts():
+    user_dict_one = {"a": 1, "b":2}
+    user_dict_two = {"c":3, "d":4}
+
+    user_dict = {**user_dict_one,**user_dict_two}
+    print(user_dict)
+
+merge_dicts()
+
+"""
+"""
+# 28. Napisz funkcję, która pobierze element z danej listy na podstawie indeksu, ale rzuci wyjątek,
+# jeśli indeks przekroczy zakres listy
+
+def download_index():
+    user_list = ["abc", 11, 25, 465, "ugh", "tur23"]
+    index = input("Enter index of list: ")
+
+    try:
+        index = int(index)
+
+        value = user_list[index]
+        print(f"Value at index {index}: {value}")
+
+    except IndexError:
+        print("Error: Index out of range.")
+    except ValueError:
+        print("Error: Invalid input. Please enter an integer.")
+
+
+download_index()
+
+"""
+"""
+# 29. Napisz funkcję, która sprawdzi, czy dany tekst jest palindromem (czyta się tak samo od przodu i od tyłu).
+
+def verify_palindrom():
+    user_text = input("Enter text: ")
+
+    if user_text == user_text[::-1]:
+        print(f"Text: {user_text} is Palindrom")
+    else:
+        print(f"Text:  {user_text} is not Palindrom")
+
+verify_palindrom()
+"""
+
+# 30. Napisz funkcję, która zliczy liczbę wystąpień każdego znaku w danym tekście.
