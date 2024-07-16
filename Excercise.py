@@ -471,4 +471,26 @@ sum_result, product_result = sum_and_product(user_tuple)
 print(f"Sum: {sum_result}, Product: {product_result}")
 
 """
+"""
+# 26. Napisz funkcję, która sprawdzi, czy dana wartość występuje w wartościach danego słownika
 
+def verify_dict():
+    value_verify = input("Enter value to verify: ")
+    example_dict = {1: 22, 2: 23, 3: "dwa", 4: 25}
+
+    try:
+        if '.' in value_verify:
+            value_verify = float(value_verify)
+        else:
+            value_verify = int(value_verify)
+    except ValueError:
+        pass
+
+    if value_verify in example_dict.values():
+        print(f"{value_verify} is in {example_dict} ")
+    else:
+        print(f"{value_verify} is not in {example_dict} ")
+
+verify_dict()
+
+"""
