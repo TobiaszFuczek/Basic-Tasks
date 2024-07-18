@@ -689,11 +689,47 @@ def download_data():
 download_data()
 
 """
-
+"""
 # 38. Napisz funkcję, która pobiera napis od użytkownika i zamienia go na liczbę całkowitą.
 # Złap błąd, jeśli wprowadzony napis nie jest liczbą, i wyświetl odpowiedni komunikat.
 
 
+def convert_subtitle():
+    try:
+        subtitle = input("Enter subtitle: ")
+        int_subtitle = int(subtitle)
+        print(int_subtitle)
+    except ValueError:
+        print("Introduced subtitle is not intiger")
+
+
+convert_subtitle()
+
+"""
+"""
+# 39. Napisz funkcję, która pobiera nazwę pliku i tekst od użytkownika, a następnie zapisuje ten tekst do pliku.
+# Złap błąd, jeśli nie można otworzyć pliku do zapisu, i obsłuż go.
+
+import os
+import time
+def write_text_to_file():
+    file_name = input("Enter the file name: ")
+    text_to_write = input("Enter the text to write to the file: ")
+
+    try:
+        with open(file_name, 'w') as file:
+            file.write(text_to_write)
+        print(f"Text successfully written to {file_name}")
+    except IOError:
+        print("An error occurred while trying to write to the file.")
+
+    time.sleep(10)
+    os.remove(file_name)
+
+
+write_text_to_file()
+
+"""
 
 
 
