@@ -543,5 +543,157 @@ def verify_palindrom():
 
 verify_palindrom()
 """
-
+"""
 # 30. Napisz funkcję, która zliczy liczbę wystąpień każdego znaku w danym tekście.
+
+def count_index():
+    user_text = input("Enter text: ")
+    count_dict = {}
+    for char in user_text:
+        if char in count_dict:
+            count_dict[char] += 1
+        else:
+            count_dict[char] = 1
+    return count_dict
+
+print(count_index())
+
+"""
+"""
+# 31. Napisz funkcję, która zamieni wszystkie litery duże na małe, a litery małe na duże w danym tekście.
+
+def swap_case():
+    user_text = input("Enter text: ")
+    swapped_text = ''
+    for char in user_text:
+        if char.islower():
+            swapped_text += char.upper()
+        elif char.isupper():
+            swapped_text += char.lower()
+        else:
+            swapped_text += char
+    return swapped_text
+
+
+print(swap_case())
+
+"""
+"""
+# 32. Napisz funkcję, która usunie duplikaty z danej listy, zachowując jedynie unikalne elementy.
+
+def remove_duplicates():
+    user_list = [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 34]
+    unique_list = list(set(user_list))
+    print(unique_list)
+
+remove_duplicates()
+
+"""
+"""
+# 33. Napisz funkcję, która połączy teksty z danej listy w jeden długi tekst, dodając między nimi spację.
+
+def add_lists():
+    user_list = ["abcd", "efgh", "ijkl"]
+    combined_text = " ".join(user_list)
+    print(combined_text)
+
+add_lists()
+
+"""
+"""
+# 34. Napisz funkcję, która sprawdzi, czy dwa dane słowa są anagramami (mają te same litery, ale w innej kolejności).
+
+def check_anagrams():
+    user_input_one = input("Enter first word: ")
+    user_input_second = input("Enter second word: ")
+
+    sorted_user_input_one = sorted(user_input_one.lower())
+    sorted_user_input_second = sorted(user_input_second.lower())
+
+    if sorted_user_input_one == sorted_user_input_second:
+        print(f"{user_input_one} and {user_input_second} are anagrams")
+    else:
+        print(f"{user_input_one} and {user_input_second} are not anagrams")
+
+check_anagrams()
+
+"""
+"""
+# 35. Napisz funkcję, która zamieni liczbę na tekst, zachowując unikalne nazwy dla każdej cyfry
+
+def number_to_text(number):
+    digit_names = {
+        '0': 'zero',
+        '1': 'one',
+        '2': 'two',
+        '3': 'three',
+        '4': 'four',
+        '5': 'five',
+        '6': 'six',
+        '7': 'seven',
+        '8': 'eight',
+        '9': 'nine'
+    }
+
+    number_str = str(number)
+    result = [digit_names[digit] for digit in number_str]
+    return ' '.join(result)
+
+print(number_to_text(12345))  # Output: one two three four five
+print(number_to_text(9087))  # Output: nine zero eight seven
+
+"""
+"""
+# 36. Napisz funkcję, która pobiera dwie liczby od użytkownika i dzieli pierwszą przez drugą.
+# Złap błąd dzielenia przez zero i obsłuż go, wyświetlając stosowny komunikat.
+
+def division_of_two_numbers():
+    first_number = int(input("Enter first number: "))
+    second_number = int(input("Enter second number: "))
+
+    try:
+        score = first_number / second_number
+        print(f"{first_number} division {second_number} is {score}")
+    except ZeroDivisionError:
+        print("Can't division by Zero")
+
+division_of_two_numbers()
+
+"""
+"""
+# 37. Napisz funkcję, która pobiera listę i indeks, a następnie zwraca element o danym indeksie.
+# Złap błąd indeksowania listy i obsłuż go, wyświetlając komunikat o przekroczeniu zakresu listy
+
+def download_data():
+    user_list = []
+    while True:
+        user_choice = input("If you want to stop entering data into the user_list, click 'E': ")
+        if user_choice.upper() == 'E':
+            break
+        else:
+            user_input_value = input("Enter data to user_list or click E: ")
+            user_list.append(user_input_value)
+
+    while True:
+        try:
+            index = int(input("Enter the index of the element you want to retrieve: "))
+            element = user_list[index]
+            print(f"Element at index {index} is {element}")
+            break
+        except IndexError:
+            print("Index out of range. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid integer index.")
+
+
+download_data()
+
+"""
+
+# 38. Napisz funkcję, która pobiera napis od użytkownika i zamienia go na liczbę całkowitą.
+# Złap błąd, jeśli wprowadzony napis nie jest liczbą, i wyświetl odpowiedni komunikat.
+
+
+
+
+
