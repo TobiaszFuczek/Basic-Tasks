@@ -10,6 +10,8 @@ def sum_numbers():
 
 sum_numbers()
 """
+import random
+
 """
 # 2. Zliczanie wystąpień danego znaku w ciągu znaków
 
@@ -730,6 +732,129 @@ def write_text_to_file():
 write_text_to_file()
 
 """
+"""
+#  40. Napisz prostą grę w Kamień-Papier-Nożyce. Poproś użytkownika o wybór i porównaj go z wyborem komputera.
+#  Złap błąd, jeśli użytkownik wpisze coś innego niż kamień, papier lub nożyce, i obsłuż go.
+
+import random
+
+
+def stone_paper_scissors():
+    choices = {"s": "stone", "p": "paper", "r": "scissors"}
+    while True:
+        try:
+            user_input = input("Enter your choice: stone=S, paper=P, or scissors=R: ").lower()
+            if user_input not in choices:
+                raise ValueError("Invalid choice")
+
+            computer_output = random.choice(list(choices.keys()))
+            print(f"Computer chose: {choices[computer_output]}")
+
+            if user_input == computer_output:
+                print("It's a draw!")
+            elif (user_input == 's' and computer_output == 'r') or \
+                    (user_input == 'p' and computer_output == 's') or \
+                    (user_input == 'r' and computer_output == 'p'):
+                print("You win!")
+            else:
+                print("You lost!")
+        except ValueError as e:
+            print(e)
+            print("Please enter 's' for stone, 'p' for paper, or 'r' for scissors.")
+
+
+stone_paper_scissors()
+"""
+"""
+#41. Napisz funkcję, która pobiera napis od użytkownika i znajduje indeks pierwszej dużej litery w tym napisie.
+# Złap błąd, jeśli nie ma dużej litery, i obsłuż go.
+
+def download_text():
+    user_text = input("Enter text: ")
+    return user_text
+
+def bigest_index(user_index):
+    try:
+        for index,char in enumerate(user_index):
+            if char.isupper():
+                return index
+        raise ValueError("No uppercase letter found in the text")
+    except ValueError as e:
+        return str(e)
+
+if __name__ == "__main__":
+    text = download_text()
+    index = bigest_index(text)
+    print("Index of the firs uppercase letter:", index)
+
+"""
+"""
+#42. Napisz funkcję, która pobiera listę liczb i zwraca ich średnią arytmetyczną. Złap błąd, jeśli lista jest pusta,
+# i obsłuż go.
+
+def download_list_numbers():
+    amount_numbers_in_list = 7
+    user_list = []
+    try:
+        for _ in range(amount_numbers_in_list):
+            number = int(input("Enter a number: "))
+            user_list.append(number)
+    except ValueError as e:
+        print(f"Error: {e}")
+    return user_list
+
+def arithmetic_average(user_list):
+    try:
+        if not user_list:
+            raise ValueError("The list is empty, cannot compute the average")
+        average = sum(user_list) / len(user_list)
+        return average
+    except ValueError as e:
+        return str(e)
+
+if __name__ == "__main__":
+    user_list = download_list_numbers()
+    average = arithmetic_average(user_list)
+    print(f"The arithmetic average is: {average}")
+
+"""
+"""
+#43. Napisz funkcję symulującą rzut sześciościenną kością do gry. Złap błąd,
+# jeśli wynik rzutu nie mieści się w zakresie od 1 do 6, i obsłuż go.
+
+import random
+
+def dice_roll():
+    try:
+        user_dice_roll = random.randint(1, 10)
+        if user_dice_roll < 1 or user_dice_roll > 6:
+            raise ValueError("The result is out of the valid range.")
+        print(f"Dice Roll: {user_dice_roll}")
+    except ValueError as e:
+        print(f"An error occurred: {e}")
+
+dice_roll()
+
+"""
+#44.  Napisz funkcję, która pobiera datę od użytkownika w formacie "YYYY-MM-DD" i konwertuje ją na obiekt daty.
+# Złap błąd, jeśli format daty jest nieprawidłowy, i obsłuż go
+
+
+from datetime import datetime
+
+def get_user_date():
+    try:
+        user_input = input("Enter date in YYYY-MM-DD format: ")
+        user_date = datetime.strptime(user_input, "%Y-%m-%d").date()
+        print(f"The date you entered is: {user_date}")
+    except ValueError:
+        print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
+
+if __name__ == "__main__":
+    get_user_date()
+
+
+
 
 
 
