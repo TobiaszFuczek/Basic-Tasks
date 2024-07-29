@@ -836,6 +836,7 @@ def dice_roll():
 dice_roll()
 
 """
+"""
 #44.  Napisz funkcję, która pobiera datę od użytkownika w formacie "YYYY-MM-DD" i konwertuje ją na obiekt daty.
 # Złap błąd, jeśli format daty jest nieprawidłowy, i obsłuż go
 
@@ -853,8 +854,66 @@ def get_user_date():
 if __name__ == "__main__":
     get_user_date()
 
+"""
+"""
+#45. Napisz prostą kalkulatora, który wykonuje podstawowe operacje matematyczne (+, -, *, /).
+# Złap błąd, jeśli użytkownik wpisze coś innego niż liczby, i obsłuż go.
+
+def simple_calculator():
+    user_operations = ["*", "/", "+", "-"]
+    try:
+        user_input = input("Enter action you want to perform (+, -, *, /): ")
+        if user_input not in user_operations:
+            raise ValueError("Invalid operation. Please enter one of +, -, *, /.")
+
+        first_value = float(input("Enter first value: "))
+        second_value = float(input("Enter second value: "))
+
+        if user_input == "*":
+            result = first_value * second_value
+        elif user_input == "/":
+            if second_value == 0:
+                raise ValueError("Division by zero is not allowed.")
+            result = first_value / second_value
+        elif user_input == "+":
+            result = first_value + second_value
+        elif user_input == "-":
+            result = first_value - second_value
+
+        print(f"The result of {first_value} {user_input} {second_value} is {result}")
+
+    except ValueError as e:
+        print(f"Error: {e}")
 
 
+simple_calculator()
 
+"""
+#46. Napisz funkcję, która pobiera listę liczb od użytkownika i zwraca największą i najmniejszą liczbę w tej liście.
+# Złap błąd, jeśli użytkownik wpisze coś innego niż liczby
+
+def get_user_list():
+    try:
+        user_input = input("Enter numbers separated by spaces: ")
+
+        user_list = [float(number) for number in user_input.split()]
+
+        if not user_list:
+            raise ValueError("The list is empty. Please enter at least one number.")
+
+        highest_number = max(user_list)
+        lowest_number = min(user_list)
+
+        return highest_number, lowest_number
+    except ValueError as e:
+        print(f"Error: {e}")
+        return None, None
+
+
+if __name__ == "__main__":
+    highest, lowest = get_user_list()
+    if highest is not None and lowest is not None:
+        print(f"The highest number is: {highest}")
+        print(f"The lowest number is: {lowest}")
 
 
