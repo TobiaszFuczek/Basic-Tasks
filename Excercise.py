@@ -889,6 +889,7 @@ def simple_calculator():
 simple_calculator()
 
 """
+"""
 #46. Napisz funkcję, która pobiera listę liczb od użytkownika i zwraca największą i najmniejszą liczbę w tej liście.
 # Złap błąd, jeśli użytkownik wpisze coś innego niż liczby
 
@@ -916,4 +917,171 @@ if __name__ == "__main__":
         print(f"The highest number is: {highest}")
         print(f"The lowest number is: {lowest}")
 
+"""
+"""
+#47. Napisz funkcję, która pobiera napis od użytkownika i zwraca jego odwróconą wersję.
+# Złap błąd, jeśli użytkownik nie poda żadnego napisu
+
+def reverse_text():
+    try:
+        user_input = input("Enter text: ")
+        if not user_input:
+            raise ValueError("You have to enter text")
+        reversed_text = user_input[::-1]
+        print("Reversed text:", reversed_text)
+    except ValueError as e:
+        print(e)
+
+
+reverse_text()
+"""
+"""
+#48. Napisz funkcję, która pobiera od użytkownika dwie liczby: podstawę i wykładnik,
+# a następnie zwraca wynik potęgowania. Złap błąd, jeśli użytkownik wpisze coś innego niż liczby
+
+def score_compounding():
+    try:
+        basis = int(input("Enter basis: "))
+        exponent = int(input("Enter exponent: "))
+        score = basis **exponent
+        return print(score)
+    except ValueError:
+        print("Enter correct data")
+
+score_compounding()
+"""
+"""
+# 49. Napisz funkcję, która sprawdza, czy podany napis jest palindromem.
+# Złap błąd, jeśli użytkownik nie wpisze żadnego napisu
+
+def verify_if_palindrom():
+    try:
+        user_input = input("Enter text: ")
+        if not user_input:
+            raise ValueError("You have to enter text")
+        if user_input == user_input[::-1]:
+            print(f"The {user_input} is a palindrom")
+        else:
+            print(f"The text: '{user_input}' is not a palindrom")
+
+    except ValueError:
+        print("Enter correct data")
+
+verify_if_palindrom()
+"""
+"""
+#50. Napisz funkcję, która pobiera listę słów i zwraca listę zawierającą tylko te słowa,
+# które mają parzystą liczbę liter. Złap błąd, jeśli lista słów jest pusta.
+
+def list_of_words_with_even_length():
+    try:
+        user_input = input("Enter words separated by spaces: ")
+        if not user_input:
+            raise ValueError("The list is empty")
+
+        user_list = user_input.split()
+
+        even_length_words = [word for word in user_list if len(word) % 2 == 0]
+
+        return even_length_words
+    except ValueError as e:
+        print(e)
+        return []
+
+
+# Wywołanie funkcji
+print(list_of_words_with_even_length())
+"""
+"""
+#51. Napisz funkcję sortującą listę liczb. Złap błąd, jeśli lista zawiera elementy, które nie są liczbami.
+
+def list_sort():
+    list_of_numbers = [1,2,45,12,66, 25, 356]
+    try:
+        sorted_numbers = sorted(list_of_numbers)
+        print(sorted_numbers)
+    except TypeError:
+        print("Char is not intiger")
+
+list_sort()
+"""
+"""
+#52. Napisz funkcję, która sprawdza, czy dana liczba jest liczbą pierwszą. Złap błąd, jeśli użytkownik nie poda liczby.
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    if n == 2:
+        return True 
+    if n % 2 == 0:
+        return False 
+    for i in range(3, int(n**0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+def verify_number():
+    try:
+        user_input = float(input("Enter number: "))
+        if user_input.is_integer():
+            user_input = int(user_input)
+            if is_prime(user_input):
+                print(f"{user_input} is a prime number")
+            else:
+                print(f"{user_input} is not a prime number")
+        else:
+            print("You entered a non-integer number")
+    except ValueError:
+        print("You didn't enter a number")
+
+verify_number()
+
+"""
+"""
+#53. Napisz funkcję, która pobiera listę i element do wyszukania. Zwróć indeks pierwszego wystąpienia elementu w liście.
+# Złap błąd, jeśli element nie znajduje się w liście
+
+def index_list():
+    try:
+        list_input = input("Enter values for the list, separated by spaces: ").split()
+        search_element = input("Enter the element to search for: ")
+
+        if search_element not in list_input:
+            raise ValueError("This element is not in the list")
+
+        index = list_input.index(search_element)
+        print(f"In the list {list_input}, the element '{search_element}' is at index {index}")
+
+    except ValueError as e:
+        print(e)
+
+
+index_list()
+
+"""
+"""
+#54. Napisz prostą grę, w której komputer losuje liczbę od 1 do 10, a użytkownik próbuje ją zgadnąć.
+# Złap błąd, jeśli użytkownik wpisuje coś innego niż liczby.
+
+import random
+
+def game_game():
+    try:
+        user_choice = int(input("Enter a number to guess (1-10): "))
+        if not 1 <= user_choice <= 10:
+            raise ValueError("Number out of range")
+
+        computer_choice = random.randint(1, 10)
+
+        if user_choice == computer_choice:
+            print("You guessed correctly!")
+        else:
+            print(f"Try again! The correct number was {computer_choice}.")
+    except ValueError:
+        print("Please enter a valid number between 1 and 10.")
+
+
+game_game()
+
+"""
 
