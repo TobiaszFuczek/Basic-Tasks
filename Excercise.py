@@ -1084,4 +1084,131 @@ def game_game():
 game_game()
 
 """
+"""
+#55. Napisz funkcję, która pobiera od użytkownika napis reprezentujący liczbę całkowitą i zwraca tę liczbę.
+# Złap błąd, jeśli użytkownik wpisze coś innego niż poprawną reprezentację liczby.
 
+def user_input():
+    try:
+        user_value = int(input("Enter value: "))
+        print(user_value)
+    except ValueError:
+        print("Value is not correct")
+
+user_input()
+"""
+"""
+#56. Napisz funkcję, która obliczy wskaźnik masy ciała (BMI) na podstawie masy (w kilogramach) i wzrostu (w metrach).
+# Funkcja powinna zwrócić ocenę stanu odżywienia (np. "Niedowaga", "Waga normalna", "Nadwaga", "Otyłość").
+
+def calculate_BMI():
+    weight_input = float(input("Enter your weight: "))
+    heigh_input = float(input("Enter your heigh in cm: "))
+    height_meters = heigh_input /100
+    rate_BMI = weight_input / (height_meters ** 2)
+    rate_BMI = round(rate_BMI, 2)
+
+    if rate_BMI < 20:
+        print(f"You have underweight, you BMI it {rate_BMI}")
+    elif 20 < rate_BMI < 25:
+        print(f"You are in the norm, you BMI it {rate_BMI}")
+    elif 25 < rate_BMI < 30:
+        print(f"You have overweight, you BMI it {rate_BMI}")
+    else:
+        print(f"You have obesity, you BMI it {rate_BMI}")
+
+calculate_BMI()
+"""
+"""
+#57. Napisz funkcję, która przyjmie listę liczb i posortuje ją rosnąco lub malejąco, w zależności od przekazanego
+# parametru. Domyślnie funkcja powinna sortować rosnąco.
+
+def list_sort():
+    list_input = input("Enter value to list, separated space: ")
+    number_list = list(map(int, list_input.split()))
+
+    operations_input = input("If you sort this list from lower value to higest value enter 'H'"
+                             "or from from higest value to lower value click 'L' ").lower()
+
+    if operations_input == "l":
+        sorted_list = sorted(number_list, reverse=True)
+
+    else:
+        sorted_list = sorted(number_list)
+
+    print(sorted_list)
+list_sort()
+
+"""
+"""
+#58. Napisz dwie funkcje: jedną do przeliczania temperatury z Celsiusza na Fahrenheita, a drugą z Fahrenheita
+# na Celsjusza. Funkcje powinny przyjmować temperaturę jako argument i zwracać przeliczoną wartość.
+
+def celsius_to_fahrenheit(temperature):
+
+    return (temperature * 9 / 5) + 32
+
+
+def fahrenheit_to_celsius(temperature):
+
+    return (temperature - 32) * 5 / 9
+
+
+celsius_temp = 20
+fahrenheit_temp = celsius_to_fahrenheit(celsius_temp)
+print(f"{celsius_temp} degrees Celsius is equal to {fahrenheit_temp} degrees Fahrenheit.")
+
+fahrenheit_temp = 68
+celsius_temp = fahrenheit_to_celsius(fahrenheit_temp)
+print(f"{fahrenheit_temp} degrees Fahrenheit is equal to {celsius_temp} degrees Celsius.")
+
+"""
+"""
+#59. Napisz funkcję, która sprawdzi, czy dany napis jest palindromem. Palindrom to ciąg znaków, który czyta się tak
+# samo od lewej do prawej, jak i od prawej do lewej (np. "kajak").
+
+def verify_palindrom(text):
+    if text == text[::-1]:
+        return f"This text {text} is a palindrom"
+    else:
+        return f"This text {text} is not a palindrom"
+
+pali = "12321"
+check = verify_palindrom(pali)
+print(check)
+"""
+
+#60. Napisz funkcję generującą losowe hasło o określonej długości. Funkcja powinna pozwalać na określenie,
+# czy hasło powinno zawierać małe i duże litery, cyfry oraz znaki specjalne.
+
+import random
+import string
+
+
+def generate_password(length, use_lowercase=True, use_uppercase=True, use_digits=True, use_special=True):
+    characters = ''
+    if use_lowercase:
+        characters += string.ascii_lowercase
+    if use_uppercase:
+        characters += string.ascii_uppercase
+    if use_digits:
+        characters += string.digits
+    if use_special:
+        characters += string.punctuation
+
+    if not characters:
+        raise ValueError("At least one character type must be selected")
+
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+
+
+length = 6
+use_lowercase = False
+use_uppercase = False
+use_digits = True
+use_special = False
+
+generated_password = generate_password(length, use_lowercase, use_uppercase, use_digits, use_special)
+print(f"Generated password: {generated_password}")
