@@ -1177,7 +1177,7 @@ pali = "12321"
 check = verify_palindrom(pali)
 print(check)
 """
-
+"""
 #60. Napisz funkcję generującą losowe hasło o określonej długości. Funkcja powinna pozwalać na określenie,
 # czy hasło powinno zawierać małe i duże litery, cyfry oraz znaki specjalne.
 
@@ -1212,3 +1212,71 @@ use_special = False
 
 generated_password = generate_password(length, use_lowercase, use_uppercase, use_digits, use_special)
 print(f"Generated password: {generated_password}")
+"""
+"""
+#61. Napisz funkcję, która przyjmie rok urodzenia i zwróci aktualny wiek osoby.
+# Wartość aktualnego roku możesz uzyskać za pomocą modułu datetime.
+
+import datetime
+
+def calculate_age(year_of_birth):
+    today = datetime.date.today()
+    age = today.year - year_of_birth
+    if (today.month, today.day) < (datetime.date(year_of_birth, 1, 1).month, datetime.date(year_of_birth, 1, 1).day):
+        age -= 1
+    return age
+
+
+user_input = int(input("Enter your year of birth: "))
+age = calculate_age(user_input)
+print("Your age is:", age)
+
+"""
+"""
+#62. Napisz funkcję, która przyjmie listę słów i zwróci nową listę zawierającą tylko te słowa,
+# które mają określoną liczbę liter (parametr przekazywany do funkcji).
+
+def list_of_words_by_length(words, length):
+    new_list = [word for word in words if len(word) == length]
+    return new_list
+
+user_input = input("Enter words separated by spaces: ")
+user_list = user_input.split()
+
+length = int(input("Enter the number of letters that words should have in the new list: "))
+
+
+filtered_list = list_of_words_by_length(user_list, length)
+print("Filtered list:", filtered_list)
+
+"""
+
+#63. Napisz funkcję, która pozwoli dwóm graczom zagrać w grę w Kamień-Papier-Nożyce.
+# Funkcja powinna przyjmować wybór każdego gracza jako argumenty i zwracać wynik rundy (np. "Gracz 1 wygrywa!")
+
+def game_stone_paper_scissor(choice_1, choice_2):
+
+    choice_1 = choice_1.lower()
+    choice_2 = choice_2.lower()
+
+
+    if choice_1 == choice_2:
+        return "It's a draw!"
+    elif (choice_1 == 's' and choice_2 == 'r') or \
+         (choice_1 == 'p' and choice_2 == 's') or \
+         (choice_1 == 'r' and choice_2 == 'p'):
+        return "Gracz 2 wygrywa!"
+    elif (choice_1 == 'r' and choice_2 == 's') or \
+         (choice_1 == 's' and choice_2 == 'p') or \
+         (choice_1 == 'p' and choice_2 == 'r'):
+        return "Gracz 1 wygrywa!"
+    else:
+        return "Nieprawidłowy wybór. Użyj 's' dla kamienia, 'p' dla papieru, 'r' dla nożyczek."
+
+
+player1_choice = input("Gracz 1, podaj swój wybór (s: kamień, p: papier, r: nożyczki): ")
+player2_choice = input("Gracz 2, podaj swój wybór (s: kamień, p: papier, r: nożyczki): ")
+
+result = game_stone_paper_scissor(player1_choice, player2_choice)
+print(result)
+
