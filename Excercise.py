@@ -1250,7 +1250,7 @@ filtered_list = list_of_words_by_length(user_list, length)
 print("Filtered list:", filtered_list)
 
 """
-
+"""
 #63. Napisz funkcję, która pozwoli dwóm graczom zagrać w grę w Kamień-Papier-Nożyce.
 # Funkcja powinna przyjmować wybór każdego gracza jako argumenty i zwracać wynik rundy (np. "Gracz 1 wygrywa!")
 
@@ -1279,4 +1279,36 @@ player2_choice = input("Gracz 2, podaj swój wybór (s: kamień, p: papier, r: n
 
 result = game_stone_paper_scissor(player1_choice, player2_choice)
 print(result)
+"""
+"""
+#64. Napisz funkcję, która obliczy sumę cyfr danej liczby całkowitej.
+
+def sum_of_digits(number):
+    sum_number = 0
+    for digit in str(number):
+        if digit.isdigit():
+            sum_number += int(digit)
+    return sum_number
+
+user_input = input("Enter number: ")
+sums = sum_of_digits(user_input)
+print(sums)
+
+"""
+"""
+#65. Napisz funkcję, która przyjmie listę liczb i zwróci największy element tej listy
+
+def higest_value(list_of_numbers):
+    return max(list_of_numbers)
+
+
+user_input = input("Enter value to list, separated by space:  ")
+list_of_numbers = [int(number) for number in user_input.split()]
+
+result = higest_value(list_of_numbers)
+print("The highest value in the list is:", result)
+
+"""
+#66.Napisz funkcję kalkulatora podatkowego, która przyjmie dochód jako argument i zwróci obliczoną kwotę podatku.
+# Możesz użyć prostego systemu podatkowego, np. 18% dla dochodów poniżej 50 000 i 25% dla dochodów powyżej 50 000
 
