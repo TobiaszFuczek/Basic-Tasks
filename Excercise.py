@@ -1309,6 +1309,48 @@ result = higest_value(list_of_numbers)
 print("The highest value in the list is:", result)
 
 """
+"""
 #66.Napisz funkcję kalkulatora podatkowego, która przyjmie dochód jako argument i zwróci obliczoną kwotę podatku.
 # Możesz użyć prostego systemu podatkowego, np. 18% dla dochodów poniżej 50 000 i 25% dla dochodów powyżej 50 000
 
+def tax_calculator(revenue):
+    if revenue < 50000:
+        tax = revenue * 0.18
+        return  tax
+    else:
+        tax = revenue * 0.25
+        return tax
+
+user_input = int(input("Enter your revenue: "))
+tax = tax_calculator(user_input)
+print(f"Revenue with amount {user_input} that {tax}")
+
+"""
+"""
+#67. Napisz funkcję, która przyjmie napis i znak, a następnie zwróci liczbę wystąpień tego znaku w napisie
+
+def amount_occurrence(subtitle, char):
+    count = 0
+    for c in subtitle:
+        if c == char:
+            count += 1
+    return count
+user_subtitle = input("Enter subtitle: ")
+user_char = input("Enter char: ")
+
+occurrences = amount_occurrence(user_subtitle, user_char)
+print(f"The character '{user_char}' occurs {occurrences} times in the subtitle.")
+
+"""
+"""
+#68. Napisz funkcję, która przyjmie liczbę od 1 do 999 i zwróci ją jako tekstową reprezentację,
+# np. 123 jako "sto dwadzieścia trzy"
+
+from num2words import num2words
+
+def number_to_words_pl(number):
+    return num2words(number, lang='en')
+
+user_number = int(input("Podaj liczbę od 1 do 999: "))
+print(number_to_words_pl(user_number))
+"""
