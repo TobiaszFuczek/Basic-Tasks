@@ -1354,3 +1354,94 @@ def number_to_words_pl(number):
 user_number = int(input("Podaj liczbę od 1 do 999: "))
 print(number_to_words_pl(user_number))
 """
+"""
+#69. Napisz funkcję, która sprawdzi, czy dana liczba jest liczbą pierwszą.
+
+def verify_number(prime_number):
+    if prime_number <= 1:
+        return f"{prime_number} is not a prime number."
+
+    for i in range(2, int(prime_number ** 0.5) + 1):
+        if prime_number % i == 0:
+            return f"{prime_number} is not a prime number."
+
+
+    return f"{prime_number} is a prime number."
+
+
+try:
+    user_input = int(input("Enter Value: "))
+    print(verify_number(user_input))
+except ValueError:
+    print("Entered data is not correct")
+"""
+
+#70. Napisz funkcję, która obliczy sumę liczb Fibonacciego mniejszych lub równych danej liczbie.
+
+"""
+#71. Napisz dwie funkcje: jedną do zamiany liczby rzymskiej na dziesiętną, a drugą do zamiany liczby dziesiętnej na rzymską
+
+# Funkcja do zamiany liczby dziesiętnej na rzymską
+def decimal_to_rome(number):
+    int_to_roman = [
+        (1000, 'M'),
+        (900, 'CM'),
+        (500, 'D'),
+        (400, 'CD'),
+        (100, 'C'),
+        (90, 'XC'),
+        (50, 'L'),
+        (40, 'XL'),
+        (10, 'X'),
+        (9, 'IX'),
+        (5, 'V'),
+        (4, 'IV'),
+        (1, 'I')
+    ]
+
+    roman = ''
+    for value, numeral in int_to_roman:
+        while number >= value:
+            roman += numeral
+            number -= value
+
+    return roman
+
+
+# Funkcja do zamiany liczby rzymskiej na dziesiętną
+def rome_to_decimal(roman):
+    roman_to_int = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+
+    decimal = 0
+    prev_value = 0
+
+    for char in reversed(roman):
+        value = roman_to_int[char]
+        if value < prev_value:
+            decimal -= value
+        else:
+            decimal += value
+        prev_value = value
+
+    return decimal
+
+
+# Przykład użycia: konwersja liczby dziesiętnej na rzymską
+user_input_two = int(input("Enter a decimal number: "))
+roman_value = decimal_to_rome(user_input_two)
+print(f"The Roman numeral for {user_input_two} is {roman_value}")
+
+# Przykład użycia: konwersja liczby rzymskiej na dziesiętną
+user_input_one = input("Enter a Roman numeral: ")
+decimal_value = rome_to_decimal(user_input_one.upper())
+print(f"The decimal value of {user_input_one} is {decimal_value}")
+
+"""
