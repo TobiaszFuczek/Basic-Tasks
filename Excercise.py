@@ -1445,3 +1445,90 @@ decimal_value = rome_to_decimal(user_input_one.upper())
 print(f"The decimal value of {user_input_one} is {decimal_value}")
 
 """
+"""
+#72. Napisz funkcję, która przyjmie listę słowników reprezentujących dane użytkowników,
+# a następnie zwróci listę użytkowników, którzy spełniają określone kryteria (np. wiek powyżej 25 lat, kobieta).
+
+def user_list(dict_in_list):
+    list_user = []
+    for user in dict_in_list:
+        if user.get('age', 0) > 25 and user.get('gender', '').lower() == 'female':
+            list_user.append(user)
+    return list_user
+
+users = [
+    {'name': 'Anna', 'age': 30, 'gender': 'female'},
+    {'name': 'John', 'age': 22, 'gender': 'male'},
+    {'name': 'Maria', 'age': 28, 'gender': 'female'},
+    {'name': 'Tom', 'age': 32, 'gender': 'male'},
+    {'name': 'Emma', 'age': 24, 'gender': 'female'},
+]
+
+# Wywołanie funkcji
+filtered_users = user_list(users)
+
+print(filtered_users)
+"""
+"""
+#73. Napisz funkcję, która sprawdzi, czy dwa dane napisy są anagramami (mają te same litery w różnej kolejności)
+
+def verify_text(text_1, text_2):
+    text_1 = text_1.replace(" ", "").lower()
+    text_2 = text_2.replace(" ", "").lower()
+
+    text_1 = sorted(text_1)
+    text_2 = sorted(text_2)
+
+    if text_1 == text_2:
+        return "These texts are anagrams"
+    else:
+        return "These texts are not anagrams"
+
+
+texts = verify_text("listen", "silent")
+print(texts)
+"""
+"""
+# 74. Napisz funkcję do gry w "Słowo do zagadki". Funkcja powinna generować losowe słowo z listy,
+# a następnie pozwalać graczowi zgadywać litery
+
+import random
+
+
+def riddle_word(list_with_words):
+    word_random = random.choice(list_with_words)
+    guessed_letters = []
+    attempts = len(word_random) + 3  # Gracz ma więcej prób niż liczba liter w słowie
+
+
+    while attempts > 0:
+        display_word = "".join([letter if letter in guessed_letters else "_" for letter in word_random])
+
+        print(f"Word to guess: {display_word}")
+
+        if display_word == word_random:
+            print("Congratulations! You guessed the word!")
+            break
+
+        guess = input("Guess a letter: ").lower()
+
+
+        if guess in word_random:
+            print(f"Good job! The letter '{guess}' is in the word.")
+            guessed_letters.append(guess)
+        else:
+            attempts -= 1
+            print(f"Sorry, the letter '{guess}' is not in the word. Attempts left: {attempts}")
+
+
+        if attempts == 0:
+            print(f"Game over! The word was '{word_random}'.")
+
+
+
+words = ["python", "hangman", "riddle", "challenge"]
+riddle_word(words)
+
+"""
+# 75. Napisz funkcję, która analizuje tekst pod kątem liczby słów, liczby unikalnych słów, średniej długości słowa itp
+
