@@ -1618,4 +1618,18 @@ print(f"The longest word in '{ver}' is........ {longest_word}")
 
 """
 
+#79. Napisz funkcję, która narysuje prostokąt o podanej szerokości i wysokości
+
+def rectangle(width, length):
+    print('*' * width)
+
+    for l in range(length - 2):
+        print('*' + ' ' * (width - 2) + '*')
+
+    if length > 1:
+        print('*' * width)
+
+rectangle(5, 4)
+
+
 
