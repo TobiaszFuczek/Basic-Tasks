@@ -1530,5 +1530,92 @@ words = ["python", "hangman", "riddle", "challenge"]
 riddle_word(words)
 
 """
+"""
 # 75. Napisz funkcję, która analizuje tekst pod kątem liczby słów, liczby unikalnych słów, średniej długości słowa itp
+
+def verify_text(text):
+    words_list = text.split
+    word_count = len(words_list)
+    unique_words = set(words_list)
+    unique_word_count = len(unique_words)
+    word_lengths = [len(word) for word in words_list]
+
+    if word_lengths:
+        average_word_length = sum(word_lengths) / len(word_lengths)
+    else:
+        average_word_length = 0
+
+    if word_lengths:
+        max_word_length = max(word_lengths)
+        min_word_length = min(word_lengths)
+    else:
+        max_word_length = 0
+        min_word_length = 0
+
+    return {
+        'total_words': word_count,
+        'unique_words': unique_word_count,
+        'average_word_length': average_word_length,
+        'max_word_length': max_word_length,
+        'min_word_length': min_word_length
+    }
+
+
+text = "To jest przykładowy tekst. Tekst ten służy jako przykład."
+result = verify_text(text)
+print(result)
+
+"""
+
+"""
+#76. Napisz funkcję, która przyjmie liczbę i sprawdzi, czy jest parzysta
+
+
+def verify_even_number(number):
+    if number % 2 == 0:
+        return print(f"The number {number} is even number")
+    else:
+        print(f"The number {number} is not even number")
+
+numbers = int(input("enter number: "))
+verify_even_number(numbers)
+
+"""
+"""
+#77. Napisz funkcję, która policzy liczbę samogłosek w danym napisie
+
+def verify_letters(text):
+    count = 0
+    positive_letters = ["a", "ą", "e", "ę", "i", "o", "u", "ó"]
+
+    for letter in text.lower():
+        if letter in positive_letters:
+            count += 1
+    return count
+
+
+
+tex = input("Enter text: ")
+verify = verify_letters(tex)
+
+print(f"In this text there are {verify} vowels")
+"""
+"""
+#78. Napisz funkcję, która znajdzie najdłuższy wyraz w danym napisie
+
+def verify_text(text):
+    words = text.split()
+    longest_word = ""
+    for word in words:
+        if len(word) > len(longest_word):
+            longest_word = word
+    return longest_word
+
+ver = input("Enter text: ")
+longest_word = verify_text(ver)
+
+print(f"The longest word in '{ver}' is........ {longest_word}")
+
+"""
+
 
