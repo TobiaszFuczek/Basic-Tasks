@@ -1617,7 +1617,7 @@ longest_word = verify_text(ver)
 print(f"The longest word in '{ver}' is........ {longest_word}")
 
 """
-
+"""
 #79. Napisz funkcję, która narysuje prostokąt o podanej szerokości i wysokości
 
 def rectangle(width, length):
@@ -1631,5 +1631,105 @@ def rectangle(width, length):
 
 rectangle(5, 4)
 
+"""
+"""
+# 80. Napisz funkcję, która przyjmie tekst i zwróci słownik, gdzie kluczami będą litery alfabetu,
+# a wartościami liczba ich wystąpień w tekście
 
+def text_to_dict(text):
+    new_dict = {}
+    for char in text:
+        if char.isalpha():
+            char = char.lower()
+            if char in new_dict:
+                new_dict[char] += 1
+            else:
+                new_dict[char] = 1
+    return new_dict
+
+
+text = "Ala ma kota"
+result = text_to_dict(text)
+print(result)
+"""
+"""
+#81. Napisz funkcję symulującą rzut monetą. Funkcja powinna zwrócić "Orzeł" lub "Reszka"
+
+import random
+def eagle_or():
+    options = ["eagle", "anchovy"]
+
+    while True:
+        user_input= input("Start click s or Finish click f: ")
+        if user_input.lower() == "s":
+            shot = random.choice(options)
+            print(f"The score is: {shot}")
+        elif user_input.lower() == "f":
+            print("Simulate is ending")
+            break
+        else:
+            print("Your choice is incorrect")
+
+
+eagle_or()
+
+
+"""
+"""
+#82.  Napisz funkcję, która przyjmie datę (dzien, miesiąc, rok) i zwróci ją w formie czytelnej dla użytkownika
+# (np. "12 stycznia 2022")
+
+import datetime
+def date_of_birthday(day, month, year):
+    date = datetime.date(year, month, day)
+    return date.strftime("%d %B %Y")
+
+print(date_of_birthday(14, 12, 1989))
+
+"""
+"""
+#83. Napisz funkcję, która pozwoli użytkownikowi wprowadzać wydatki i przychody, a następnie obliczy saldo.
+
+def saldo(expenses, revenues):
+    sum_of_expenses = sum(expenses)
+    sum_of_revenue = sum(revenues)
+
+    saldo = sum_of_revenue - sum_of_expenses
+
+    return saldo
+
+expenses_input = input("Enter expenses slice space: ")
+revenues_input = input("Enter revenues slice space: ")
+
+expenses = list(map(float, expenses_input.split()))
+revenues = list(map(float, revenues_input.split()))
+
+
+saldo_result = saldo(expenses, revenues)
+
+
+print(f"Your balance is: {saldo_result}")
+
+"""
+"""
+#84. Napisz funkcję, która przyjmie listę słów i zwróci informacje, ile razy każde słowo występuje w liście
+
+def how_many_words(list_words):
+    word_count = {}
+
+    for word in list_words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+
+    return word_count
+
+
+words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+result = how_many_words(words)
+print(result)
+
+"""
+#85. Napisz funkcję, która zamieni liczbę binarną na liczbę dziesiętną
 
